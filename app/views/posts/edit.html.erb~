@@ -1,0 +1,30 @@
+<div class="jumbotron">
+<h1>Editing Post</h1>
+
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<br>
+
+<% @question.each do |x| %>
+<%= link_to "Back", {controller: "questions", action: "show", id: x.id, class:" btn btn-info"}%>
+<% end %>

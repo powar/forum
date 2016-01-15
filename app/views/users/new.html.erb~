@@ -2,8 +2,9 @@
 <h1 class="jumbotron text-center">New User</h1>
 
 <%= render 'form' %>
+<br>
 
-<%= link_to 'Back', users_path %>
+
 
 </html>
 

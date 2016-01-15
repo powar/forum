@@ -9,5 +9,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+   def admin
+   @admin=Users.where("admin= ?","ture")
+   end 
+ helper_method :admin
 
+    
+   
 end

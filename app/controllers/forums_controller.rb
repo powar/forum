@@ -10,10 +10,13 @@ class ForumsController < ApplicationController
   # GET /forums/1
   # GET /forums/1.json
   def show
-  
+  @forums = Forum.find(params[:id])
  @question=Question.new
- @questions=Question.all
-  
+  #@questions=Question.all
+ #@question_forum= Question.where("forum_id"=> "params[:forum_id]");
+ @questions = Question.where("forum_id = ?",@forum.id)
+
+
   end
 
   # GET /forums/new

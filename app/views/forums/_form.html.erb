@@ -1,4 +1,5 @@
-<%= form_for(@forum) do |f| %>
+<div class="jumbotron">
+<%= bootstrap_form_for(@forum) do |f| %>
   <% if @forum.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this forum from being saved:</h2>
@@ -12,14 +13,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+   
     <%= f.text_area :description %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

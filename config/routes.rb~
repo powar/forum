@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  #devise_for :admins
+  #devise_for :users
   resources :posts
  get 'post/index'
  get 'post/new'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   resources :forums
 get 'forum/index'
 get 'forum/new'
+get 'forum/show'
   #get 'sessions/new'
 
   #get 'sessions/create'

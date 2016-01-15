@@ -8,6 +8,10 @@ gem 'therubyracer'
 gem 'execjs' 
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap_form'
+gem 'devise', '~> 3.5', '>= 3.5.3'
+gem 'bxslider-rails'
+gem "cancan"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

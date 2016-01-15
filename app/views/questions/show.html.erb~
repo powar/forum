@@ -5,16 +5,9 @@
   <%= @question.name %>
 </p>
 
-<p>
-  <strong>Last poster:</strong>
-  <%= @question.last_poster_id %>
-</p>
-
-<p>
-  <strong>Last post at:</strong>
-  <%= @question.last_post_at %>
-</p>
 </div>
+</br>
+
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -31,6 +24,7 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class="jumbotron">
 <h1>Answers</h1>
 
 <table class="table">
@@ -45,26 +39,34 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_post_path(post),class:" btn btn-success"%></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-
-
-  <div class="field">
+    
+     <h3>Comments:-</h3><br>
+     <div class="jumbotron">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
+    <%= f.text_area :content %><br>
+   
+   <input type="hidden" name="post[question_id]" value="<%= @question.id %>" />
+
+ 
     <%= f.submit %>
-  </div>
+</div>
+ <br>
+
+<% end %>
+<br>
+<%= link_to 'Edit', edit_question_path(@question),class:"btn btn-primary" %> |
+<% @forum.each do |x| %>
+<%= link_to "Back", {controller: "forums", action: "show", id: x.id, class:" btn btn-info"}%>
 <% end %>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+
